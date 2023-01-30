@@ -2,6 +2,12 @@
 
 
 #include "BlockManager.h"
+#include "ArrowBlock.h"
+#include "NBlock.h"
+#include "cepafo.h"
+#include "NumberBlock.h"
+#include "BlockBlock.h"
+#include "SequenceBlock.h"
 
 // Sets default values
 ABlockManager::ABlockManager()
@@ -27,13 +33,46 @@ void ABlockManager::Tick(float DeltaTime)
 
 void ABlockManager::AddBlock(ABlock* Block)
 {
+	Blocks.Enqueue(Block);
 }
 
 void ABlockManager::RemoveBlock(ABlock* Block)
 {
+	Blocks.Dequeue(Block);
+}
+
+EBType ABlockManager::ReturnBlockType(ABlock* Block)
+{
+	return Block->GetBlockType();
 }
 
 void ABlockManager::Execute()
 {
+	ABlock* block = nullptr;
+	Blocks.Dequeue(block);
+	switch (block->GetBlockType())
+	{
+
+	case EBType::ESequence:
+		//TODO
+		break;
+	case EBType::ENumber:
+		//TODO
+		
+		break;
+	case EBType::EArrow:
+		//TODO
+		break;
+	case EBType::EBloc:
+		//TODO
+		break;
+	case EBType::EN:
+		//TODO
+		break;
+	default:
+		break;
+	}
+
+	
 }
 

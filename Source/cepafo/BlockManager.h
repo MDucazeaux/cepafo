@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Block.h"
+#include "cepafo.h"
 #include "GameFramework/Actor.h"
 #include "BlockManager.generated.h"
 
@@ -23,7 +24,7 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	
-	TArray<ABlock*> Blocks;
+	TQueue<ABlock*> Blocks;
 
 public:	
 	// Called every frame
@@ -32,6 +33,8 @@ public:
 	void AddBlock(ABlock* Block);
 	
 	void RemoveBlock(ABlock* Block);
+	
+	EBType ReturnBlockType(ABlock* Block);
 	
 	void Execute();
 	

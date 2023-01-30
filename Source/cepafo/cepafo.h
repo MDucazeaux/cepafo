@@ -3,6 +3,10 @@
 #pragma once
 
 #include "CoreMinimal.h"
+
+
+
+
 enum class EBType
 {
 	ESequence,
@@ -10,4 +14,13 @@ enum class EBType
 	EArrow,
 	EBloc,
 	EN,
+};
+
+
+enum class EDirection
+{
+	ERight,
+	ELeft,
+	EUp,
+	EDown
 };

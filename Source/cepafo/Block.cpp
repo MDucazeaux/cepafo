@@ -25,3 +25,8 @@ void ABlock::Tick(float DeltaTime)
 
 }
 
+EBType ABlock::GetBlockType()
+{
+	return BlockType;
+}
+

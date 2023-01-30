@@ -15,16 +15,23 @@ class CEPAFO_API ABlock : public AActor
 public:	
 	// Sets default values for this actor's properties
 	ABlock();
-
+	
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Block")
+		EBType BlockType;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	EBType BlockType;
+	
 
+	/*int32 BNumberRepetition;
+	int32 BNumbre;*/
+	
 	
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+	
+	EBType GetBlockType();
 
 };
