@@ -3,3 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
+enum class EBType
+{
+	ESequence,
+	ENumber,
+	EArrow,
+	EBloc,
+	EN,
+};
