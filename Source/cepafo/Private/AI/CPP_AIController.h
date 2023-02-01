@@ -29,4 +29,6 @@ private:
 	
 	UPROPERTY(VisibleAnywhere, Category = "AI")
 		class UBlackboardComponent* BlackboardComponent;
+	
+	virtual void OnMoveCompleted(FAIRequestID RequestID, const FPathFollowingResult& Result) override;
 };

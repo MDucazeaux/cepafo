@@ -5,6 +5,7 @@
 #include "BehaviorTree/BehaviorTree.h"
 #include "BehaviorTree/BehaviorTreeComponent.h"
 #include "BehaviorTree/BlackboardComponent.h"
+#include "AI_CPP.h"
 
 ACPP_AIController::ACPP_AIController()
 {
@@ -29,5 +30,16 @@ void ACPP_AIController::OnPossess(APawn* InPawn)
 	if (IsValid(Blackboard) && IsValid(BehaviorTree))
 	{
 		BlackboardComponent->InitializeBlackboard(*BehaviorTree->BlackboardAsset);
+	}
+}
+
+void ACPP_AIController::OnMoveCompleted(FAIRequestID RequestID, const FPathFollowingResult& Result)
+{
+	AAI_CPP* AI = Cast<AAI_CPP>(GetPawn());
+
+	if (AI)
+	{
+		AI->GoToNextWaypoint();
+		AI->MoveToWaypoint();
 	}
 }
