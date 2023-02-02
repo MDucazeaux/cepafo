@@ -43,7 +43,6 @@ void AAI_CPP::MoveToWaypoint()
 	
 	if (AIController)
 	{
-		DrawDebugLine(GetWorld(),GetActorLocation(), Waypoints[CurrentWaypoint]->GetActorLocation(), FColor::Red);
 		if (CurrentWaypoint <= Waypoints.Num())
 		{
 			for (AActor* Waypoint : Waypoints)

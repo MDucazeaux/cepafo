@@ -34,6 +34,8 @@ public:
 	
 	UPROPERTY(EditAnywhere)
 		bool isMoving;
+		class UAnimationAsset* WalkAnimation;
+		class UAnimationAsset* IdleAnimation;
 
 private:
 	UPROPERTY(EditAnywhere, meta = (AllowPrivateAccess = "true"))
