@@ -64,11 +64,5 @@ void AAI_CPP::MoveToWaypoint()
 void AAI_CPP::GoToNextWaypoint()
 {
 	CurrentWaypoint = (CurrentWaypoint + 1) % Waypoints.Num();
-	isMoving = true;
-}
-
-void AAI_CPP::KillOnTouch()
-{
-	
 }
 

@@ -28,14 +28,6 @@ public:
 
 	void MoveToWaypoint();
 	void GoToNextWaypoint();
-	
-	void KillOnTouch();
-	
-	
-	UPROPERTY(EditAnywhere)
-		bool isMoving;
-		class UAnimationAsset* WalkAnimation;
-		class UAnimationAsset* IdleAnimation;
 
 private:
 	UPROPERTY(EditAnywhere, meta = (AllowPrivateAccess = "true"))
