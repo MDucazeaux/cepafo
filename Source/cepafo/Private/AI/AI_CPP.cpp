@@ -19,7 +19,8 @@ void AAI_CPP::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	UGameplayStatics::GetAllActorsOfClass(GetWorld(), AWaypoint_CPP::StaticClass(), Waypoints);
+	//UGameplayStatics::GetAllActorsOfClass(GetWorld(), AWaypoint_CPP::StaticClass(), Waypoints);
+	UGameplayStatics::GetAllActorsOfClassWithTag(GetWorld(), AWaypoint_CPP::StaticClass(), WaypointTag, Waypoints);
 	MoveToWaypoint();
 }
 

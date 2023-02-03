@@ -35,4 +35,7 @@ private:
 
 	UPROPERTY(EditAnywhere, meta = (AllowPrivateAccess = "true"))
 	TArray<AActor*> Waypoints;
+
+	UPROPERTY(EditAnywhere, meta = (AllowPrivateAccess = "true"))
+	FName WaypointTag = "Waypoint";
 };
