@@ -5,8 +5,7 @@
 #include "CoreMinimal.h"
 
 
-
-
+UENUM()
 enum class EBType
 {
 	ESequence,
@@ -17,10 +16,14 @@ enum class EBType
 };
 
 
+
+
+UENUM()
 enum class EDirection
 {
 	ERight,
 	ELeft,
 	EUp,
-	EDown
+	EDown,
+	ENull
 };

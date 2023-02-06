@@ -23,18 +23,24 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-	
-	TQueue<ABlock*> Blocks;
 
+	void NBlockFunction(int i);
+	
+	
+	
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 	
-	void AddBlock(ABlock* Block);
-	
-	void RemoveBlock(ABlock* Block);
-	
-	EBType ReturnBlockType(ABlock* Block);
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Block")
+		ABlock* Sequence = nullptr;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Block")
+		ABlock* Cursor = nullptr;
+
+
+
+	AActor* SpawnActor(const FString& ClassName, FTransform actorTransform);
 	
 	void Execute();
 	
