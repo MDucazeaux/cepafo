@@ -3,6 +3,7 @@
 
 #include "Block.h"
 #include "Components/ActorComponent.h"
+#include "cepafo.h"
 #include "Kismet/GameplayStatics.h"
 #include "Components/SphereComponent.h"
 // Sets default values
@@ -12,7 +13,7 @@ ABlock::ABlock()
 	PrimaryActorTick.bCanEverTick = true;
 	
 	SphereComponent = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComponent"));
-	SphereComponent->InitSphereRadius(40.0f);
+	SphereComponent->InitSphereRadius(100.0f);
 	SphereComponent->SetCollisionProfileName(TEXT("SphereBlock"));
 	SphereComponent->SetupAttachment(RootComponent);
 	
@@ -35,19 +36,27 @@ void ABlock::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	
+
 }
 
 void ABlock::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	if (OtherActor->GetName() == "Sequence")
-	{
-		if (Cast<ABlock>(OtherActor))
+	
+		
+		if (Cast<ABlock>(OtherActor)->GetBlockType() != EBType::ESequence)
 		{
-			if (Cast<ABlock>(GetOwner()))
+			if (Cast<ABlock>(OtherActor))
 			{
-				ABlock* blocks = Cast<ABlock>(OtherActor);
-				blocks->Blocks.Add(Cast<ABlock>(GetOwner()));
-				GetOwner()->SetHidden(true);
+				if (DoOnce)
+				{
+					GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("nuveriobzbktosjmrzgrntui"));
+					Blocks.Add(Cast<ABlock>(OtherActor));
+					OtherActor->SetHidden(true);
+					DoOnce = false;
+					
+				}
+				
 			}
 		}
 		
@@ -56,7 +65,7 @@ void ABlock::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherAc
 		
 		
 		
-	}
+	
 }
 
 

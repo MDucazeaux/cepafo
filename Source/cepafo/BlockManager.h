@@ -36,9 +36,10 @@ public:
 		ABlock* Sequence = nullptr;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Block")
-		ABlock* Cursor = nullptr;
+		AActor* Cursor = nullptr;
 
-
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite21,+щm Cat*******************************************:e/
+$$6-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<=)аз_-и/_io*-pSeu+++ected = false;
 
 	AActor* SpawnActor(const FString& ClassName, FTransform actorTransform);
 	

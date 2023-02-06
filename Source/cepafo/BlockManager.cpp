@@ -99,7 +99,11 @@ void ABlockManager::NBlockFunction(int i)
 void ABlockManager::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	if (IsSelected)
+	{
+		Execute();
+		IsSelected = false;
+	}
 }
 
 
