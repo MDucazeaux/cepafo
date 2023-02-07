@@ -48,12 +48,12 @@ void AAI_CPP::MoveToWaypoint()
 		{
 			for (AActor* Waypoint : Waypoints)
 			{
-				AWaypoint_CPP* WaypointItr = Cast<AWaypoint_CPP>(Waypoint);
-				if (WaypointItr)
+				AWaypoint_CPP* WaypointIteration = Cast<AWaypoint_CPP>(Waypoint);
+				if (WaypointIteration)
 				{
-					if (WaypointItr->GetWaypointOrder() == CurrentWaypoint)
+					if (WaypointIteration->GetWaypointOrder() == CurrentWaypoint)
 					{
-						AIController->MoveToActor(WaypointItr, 5.f, false);
+						AIController->MoveToActor(WaypointIteration, 5.f, false);
 						break;
 					}
 				}
