@@ -76,10 +76,11 @@ void ABlock::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherAc
 
 				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("nuveriobzbktosjmrzgrntui"));
 				Blocks.Add(Cast<ABlock>(OtherActor));
-				//OtherActor->SetHidden(true);
-				OtherActor->SetActorLocation(FVector(1000.f, 5000.f, 1000.f));
+				//SetActorHiddenInGame(OtherActor);
+				OtherActor->SetActorLocation(FVector(1000.f, 5000.f, -1000.f));
+				
 				Cast<ABlock>(OtherActor)->SphereComponent->SetCollisionEnabled(ECollisionEnabled::NoCollision);
-
+				//Cast<AActor>(OtherActor)->EnableCollision(false);
 				InSequence = true;
 
 				//AActor::DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
@@ -104,11 +105,13 @@ void ABlock::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherAc
 				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("nuveriobzbktosjmrzgrntui"));
 				BlockInN.Add(Cast<ABlock>(OtherActor));
 				//OtherActor->SetHidden(true);
-				OtherActor->SetActorLocation(FVector(1000.f, 5000.f, 1000.f));
+				//SetActorHiddenInGame(OtherActor);
+				OtherActor->SetActorLocation(FVector(1000.f, 5000.f, -1000.f));
 				Cast<ABlock>(OtherActor)->SphereComponent->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+				//Cast<AActor>(OtherActor)->EnableCollision(false);
+				InBlockN = true;
 				DoOnce = false;
 
-				InBlockN = true;
 
 			}
 			else 
