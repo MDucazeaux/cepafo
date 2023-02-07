@@ -86,13 +86,12 @@ void ABlock::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherAc
 			}
 		}
 	}
-	}
-		
-		
-		
-		
-	
 }
+		
+		
+		
+		
+
 
 
 EBType ABlock::GetBlockType()
