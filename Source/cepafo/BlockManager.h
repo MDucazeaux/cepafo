@@ -38,12 +38,19 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Block")
 		AActor* Cursor = nullptr;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite21,+щm Cat*******************************************:e/
-$$6-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<=)аз_-и/_io*-pSeu+++ected = false;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Block")
+		bool IsSelected = false;
 
-	AActor* SpawnActor(const FString& ClassName, FTransform actorTransform);
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Block")
+		bool IsReset = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Block")
+		TSubclassOf<AActor> ActorToSpawn;
+	
+	
 	
 	void Execute();
+	void Reset();
 	
 
 };

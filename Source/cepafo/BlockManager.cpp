@@ -39,7 +39,7 @@ void ABlockManager::NBlockFunction(int i)
 
 			for (int b = 0; b < numberN; b++)
 			{
-				SpawnActor("Class Name", FTransform());
+				GetWorld()->SpawnActor(ActorToSpawn, &Cursor->GetTransform());
 
 			}
 			numberN = 1;
@@ -108,48 +108,13 @@ void ABlockManager::Tick(float DeltaTime)
 
 
 
-AActor* ABlockManager::SpawnActor(const FString& ClassName, FTransform spawnTransform)
-{
 
-
-	UClass* asActor = nullptr;
-	AActor* oSpawnedActor = nullptr;
-	bool bIsOk = false;
-	
-	UClass* FoundClass = LoadObject<UClass>(NULL, *ClassName, NULL, LOAD_None, NULL);
-
-	if (FoundClass->IsChildOf(AActor::StaticClass()))
-	{
-		bIsOk = true;
-	}
-	else
-	{
-		FoundClass = nullptr;
-		bIsOk = false;
-	}
-
-	if (bIsOk)
-	{
-		asActor = DynamicMetaCast(AActor::StaticClass(), FoundClass);
-		bIsOk = (asActor != nullptr);
-	}
-
-	if (bIsOk)
-	{
-		AActor* oStartSpawnedActor = UGameplayStatics::BeginDeferredActorSpawnFromClass(this, asActor, spawnTransform, ESpawnActorCollisionHandlingMethod::AlwaysSpawn,((AActor *)nullptr));
-
-		oSpawnedActor = UGameplayStatics::FinishSpawningActor(oStartSpawnedActor, spawnTransform);
-	}
-	
-	return oSpawnedActor;
-}
 
 void ABlockManager::Execute()
 {
 	int number = 1;
 	int repetition = 1;
-
-	FVector movePosition = GetActorLocation();
+	
 
 	int i = 0;
 	if (Sequence->GetBlockType() != EBType::ESequence)
@@ -179,11 +144,11 @@ void ABlockManager::Execute()
 				}
 				if (Sequence->Blocks[i]->GetDirection() == EDirection::ERight)
 				{
-					Cursor->SetActorLocation(Cursor->GetActorLocation() + FVector(100.f , 0, 0));
+					Cursor->SetActorLocation(Cursor->GetActorLocation() + FVector(0 , 0, 100.f));
 				}
 				if (Sequence->Blocks[i]->GetDirection() == EDirection::ELeft)
 				{
-					Cursor->SetActorLocation(Cursor->GetActorLocation() + FVector(-100.f, 0, 0));
+					Cursor->SetActorLocation(Cursor->GetActorLocation() + FVector(0, 0, 100.f));
 				}
 				if (Sequence->Blocks[i]->GetDirection() == EDirection::EUp)
 				{
@@ -200,7 +165,7 @@ void ABlockManager::Execute()
 
 			for (int b = 0; b < number; b++)
 			{
-				SpawnActor("Class Name", Cursor->GetActorTransform());
+				GetWorld()->SpawnActor(ActorToSpawn, &Cursor->GetTransform());
 
 			}
 			number = 1;
@@ -226,4 +191,8 @@ void ABlockManager::Execute()
 
 
 	}
+}
+
+void ABlockManager::Reset()
+{
 }
