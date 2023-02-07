@@ -50,7 +50,6 @@ public:
 	
 	
 	void Execute();
-	void Reset();
 	
 
 };

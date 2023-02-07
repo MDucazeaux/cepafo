@@ -193,6 +193,3 @@ void ABlockManager::Execute()
 	}
 }
 
-void ABlockManager::Reset()
-{
-}
