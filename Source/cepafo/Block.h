@@ -44,6 +44,11 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Block")
 		 class USphereComponent* SphereComponent;
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool InSequence = false;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool InBlockN = false;
 	
 	UFUNCTION()
 		void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
