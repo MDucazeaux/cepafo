@@ -45,26 +45,48 @@ void ABlock::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherAc
 	
 	if (this->GetBlockType() == EBType::ESequence)
 	{
-		if (Cast<ABlock>(OtherActor)->GetBlockType() != EBType::ESequence)
+		if (Cast<ABlock>(OtherActor))
 		{
-			if (Cast<ABlock>(OtherActor))
-			{
-				if (DoOnce)
-				{
-					GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("nuveriobzbktosjmrzgrntui"));
-					Blocks.Add(Cast<ABlock>(OtherActor));
-					OtherActor->SetHidden(true);
-					Cast<ABlock>(OtherActor)->SphereComponent->SetCollisionEnabled(ECollisionEnabled::NoCollision);
-					
 
-				}
+
+			if (Cast<ABlock>(OtherActor)->GetBlockType() != EBType::ESequence)
+			{
+
+				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("nuveriobzbktosjmrzgrntui"));
+				Blocks.Add(Cast<ABlock>(OtherActor));
+				OtherActor->SetHidden(true);
+				OtherActor->SetActorLocation(FVector(100000.f, 100000.f, 100000.f));
+				Cast<ABlock>(OtherActor)->SphereComponent->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+
+
+
 
 			}
 		}
 	}
 		
 		
-			
+	if (this->GetBlockType() == EBType::EN)
+	{
+		if (Cast<ABlock>(OtherActor))
+		{
+			if (Cast<ABlock>(OtherActor)->GetBlockType() != EBType::ESequence)
+			{
+
+
+				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("nuveriobzbktosjmrzgrntui"));
+				BlockInN.Add(Cast<ABlock>(OtherActor));
+				OtherActor->SetHidden(true);
+				OtherActor->SetActorLocation(FVector(100000.f, 100000.f, 100000.f));
+				Cast<ABlock>(OtherActor)->SphereComponent->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+				DoOnce = false;
+
+
+
+			}
+		}
+	}
+	}
 		
 		
 		
