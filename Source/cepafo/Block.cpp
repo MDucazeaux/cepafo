@@ -18,6 +18,28 @@ ABlock::ABlock()
 	SphereComponent->SetupAttachment(RootComponent);
 	
 	SphereComponent->OnComponentBeginOverlap.AddDynamic(this, &ABlock::OnOverlapBegin);
+
+
+
+	switch (GetDirection())
+	{
+	case EDirection::ENull:
+		break;
+		
+	case EDirection::ERight:
+		break;
+	case EDirection::ELeft:
+		SetActorRotation(FRotator( 180.f,0, 0)); 
+		break;
+	case EDirection::EUp:
+		SetActorRotation(FRotator(90.f,0,0));
+		break;
+	case EDirection::EDown:
+		SetActorRotation(FRotator(-90.f,0, 0));
+		break;
+	default:
+		break;
+	}
 }
 
 // Called when the game starts or when spawned

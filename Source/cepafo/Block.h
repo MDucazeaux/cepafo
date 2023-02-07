@@ -57,11 +57,15 @@ public:
 
 
 	
+	UFUNCTION(BlueprintCallable, Category = "Block")
+		EBType GetBlockType();
+	UFUNCTION(BlueprintCallable, Category = "Block")
+		int32 GetNumber();
 	
-	EBType GetBlockType();
-	int32 GetNumber();
 	void SetNumberRepetition(int32 Number);
-	int32 GetNumberRepetition();
-	EDirection GetDirection();
+	UFUNCTION(BlueprintCallable, Category = "Block")
+		int32 GetNumberRepetition();
+	UFUNCTION(BlueprintCallable, Category = "Block")
+		EDirection GetDirection();
 
 };
