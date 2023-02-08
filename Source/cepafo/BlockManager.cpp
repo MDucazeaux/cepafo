@@ -33,7 +33,7 @@ void ABlockManager::NBlockFunction(int i)
 
 
 
-		switch (Sequence->Blocks[h]->BlockInN[0]->GetBlockType())
+		switch (Sequence->Blocks[i]->BlockInN[h]->GetBlockType())
 		{
 		case EBType::EBloc:										///////////
 
@@ -47,7 +47,7 @@ void ABlockManager::NBlockFunction(int i)
 
 		case EBType::EArrow:									///////////
 
-			for (int b = 0; b < numberN; b++)
+			for (int b = 0; b < numberN; ++b)
 			{
 				if (Sequence->Blocks[h]->GetDirection() == EDirection::ENull)
 				{
@@ -80,7 +80,6 @@ void ABlockManager::NBlockFunction(int i)
 
 
 		case EBType::EN:
-			NBlockFunction(h);
 			break;
 
 
@@ -173,7 +172,7 @@ void ABlockManager::Execute()
 		case EBType::EN:
 
 
-			for (int m = 0; m < number; m++)
+			for (int m = 0; m < number; ++m)
 			{
 
 
@@ -187,9 +186,6 @@ void ABlockManager::Execute()
 		default:
 			break;
 		}
-
-
-
 	}
 }
 
